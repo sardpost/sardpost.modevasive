@@ -1,0 +1,4 @@
+---
+# handlers file for sardpost.modevasive
+- name: Reloading Apache Http
+  service: name=httpd state=reloaded

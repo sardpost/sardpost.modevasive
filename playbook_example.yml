@@ -1,0 +1,10 @@
+---
+# This playbook deploys the whole application stack in this site.
+
+- name: Install Modevasive
+  hosts: webserver
+  remote_user: centos
+  sudo: yes
+
+  roles:
+    - sardpost.modevasive

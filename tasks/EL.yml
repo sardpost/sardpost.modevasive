@@ -1,0 +1,23 @@
+---
+# Tasks specific for RHEL/Centos systems
+
+- name: "RHEL/Centos | Installing epel-release"
+  yum: name=epel-release state=present
+  tags: epel
+
+- name: "RHEL/Centos | Enabling epel repository"
+  ini_file: dest=/etc/yum.repos.d/epel.repo section=epel option=enabled value=1
+  tags: epel
+
+- name: "RHEL/Centos | Installing Modevasive"
+  yum: name={{ item }} state=present
+  with_items:
+    - mod_evasive
+  tags:
+    - modevasive
+    - init
+    - config
+
+- name: "RHEL/Centos | Checking if mod_security module is loaded"
+  lineinfile: dest=/etc/httpd/conf.d/mod_evasive.conf regexp="^LoadModule " insertbefore=BOF line="LoadModule evasive20_module modules/mod_evasive24.so"
+  notify: Reloading Apache Http
