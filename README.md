@@ -14,7 +14,7 @@ Dependencies
 ------------
 This role needs one role:
 
-  - geerlingguy.apache
+    - geerlingguy.apache
 
 
 Example Playbook
@@ -22,12 +22,12 @@ Example Playbook
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
-  - name: Install Modevasive
-    hosts: webserver
-    remote_user: centos
-    sudo: yes
+    - name: Install Modevasive
+      hosts: webserver
+      remote_user: centos
+      sudo: yes
 
-    roles:
+      roles:
       - sardpost.modevasive
 
 Version:
